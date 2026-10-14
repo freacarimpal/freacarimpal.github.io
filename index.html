@@ -1,0 +1,1104 @@
+<!DOCTYPE html>  <html lang="en">  
+<head>  
+  <meta charset="UTF-8">  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta name="description" content="My portfolio website">  
+  <title>Freda Carimpal's Portfolio</title>    <style>  
+    /* Theme */  
+    :root {  
+      --primary: #1d4ed8;  
+      --dark: #172554;  
+      --light: #eff6ff;  
+      --white: #ffffff;  
+      --text: #334155;  
+      --muted: #64748b;  
+      --border: #dbe3ef;  
+    }  
+  
+    * {  
+      box-sizing: border-box;  
+      margin: 0;  
+      padding: 0;  
+      scroll-behavior: smooth;  
+    }  
+  
+    body {  
+      font-family: Arial, sans-serif;  
+      color: var(--text);  
+      line-height: 1.7;  
+      overflow-wrap: break-word;  
+    }  
+  
+    a {  
+      color: var(--primary);  
+      text-decoration: none;  
+    }  
+  
+    img {  
+      max-width: 100%;  
+      display: block;  
+    }  
+  
+    section {  
+      scroll-margin-top: 90px;  
+    }  
+  
+    /* Navigation */  
+    .site-header {  
+      position: sticky;  
+      top: 0;  
+      z-index: 100;  
+      background: var(--white);  
+      border-bottom: 1px solid var(--border);  
+    }  
+  
+    .navbar {  
+      max-width: 1100px;  
+      margin: auto;  
+      padding: 16px 24px;  
+      display: flex;  
+      justify-content: space-between;  
+      align-items: center;  
+      gap: 20px;  
+    }  
+  
+    .logo {  
+      font-size: 1.4rem;  
+      font-weight: bold;  
+      color: var(--dark);  
+      white-space: nowrap;  
+    }  
+  
+    .nav-links {  
+      list-style: none;  
+      display: flex;  
+      flex-wrap: wrap;  
+      gap: 20px;  
+    }  
+  
+    .nav-links a {  
+      color: var(--text);  
+      transition: color 0.2s;  
+    }  
+  
+    .nav-links a:hover {  
+      color: var(--primary);  
+    }  
+  
+    /* Home */  
+    .hero {  
+      max-width: 1100px;  
+      min-height: 520px;  
+      margin: auto;  
+      padding: 70px 24px;  
+      display: flex;  
+      align-items: center;  
+      justify-content: space-between;  
+      gap: 50px;  
+    }  
+  
+    .hero-content {  
+      flex: 1;  
+      min-width: 0;  
+    }  
+  
+    .eyebrow {  
+      color: var(--primary);  
+      font-weight: bold;  
+      letter-spacing: 2px;  
+      margin-bottom: 12px;  
+    }  
+  
+    .hero h1 {  
+      color: var(--dark);  
+      font-size: clamp(2.2rem, 5vw, 3.6rem);  
+      line-height: 1.2;  
+      margin-bottom: 14px;  
+    }  
+  
+    .hero h1 span {  
+      color: var(--primary);  
+    }  
+  
+    .hero h2 {  
+      font-size: 1.4rem;  
+      margin-bottom: 16px;  
+    }  
+  
+    .hero-content > p:not(.eyebrow) {  
+      margin-bottom: 24px;  
+    }  
+  
+    .hero-actions {  
+      display: flex;  
+      flex-wrap: wrap;  
+      gap: 12px;  
+    }  
+  
+    .profile-container {  
+      flex: 0 0 280px;  
+    }  
+  
+    .profile-container img {  
+      width: 280px;  
+      height: 280px;  
+      object-fit: cover;  
+      border-radius: 50%;  
+      border: 6px solid var(--light);  
+      background: var(--light);  
+    }  
+  
+    /* Buttons */  
+    .btn {  
+      display: inline-block;  
+      border: 2px solid var(--primary);  
+      border-radius: 8px;  
+      background: var(--primary);  
+      color: var(--white);  
+      padding: 10px 18px;  
+      font: inherit;  
+      font-weight: bold;  
+      cursor: pointer;  
+      text-align: center;  
+    }  
+  
+    .btn:hover {  
+      background: var(--dark);  
+      border-color: var(--dark);  
+    }  
+  
+    .btn-outline {  
+      background: var(--white);  
+      color: var(--primary);  
+    }  
+  
+    /* Sections */  
+    .section {  
+      padding: 65px 24px;  
+    }  
+  
+    .section > * {  
+      max-width: 1050px;  
+      margin-left: auto;  
+      margin-right: auto;  
+    }  
+  
+    .alternate {  
+      background: var(--light);  
+    }  
+  
+    .section-title {  
+      text-align: center;  
+      color: var(--dark);  
+      font-size: 2rem;  
+      margin-bottom: 12px;  
+    }  
+  
+    .section-description {  
+      text-align: center;  
+      color: var(--muted);  
+      margin-bottom: 28px;  
+    }  
+  
+    /* About */  
+    .about-content {  
+      max-width: 850px;  
+    }  
+  
+    .about-content > p {  
+      margin-bottom: 22px;  
+    }  
+  
+    .information-card {  
+      background: var(--white);  
+      border: 1px solid var(--border);  
+      border-radius: 12px;  
+      padding: 25px;  
+    }  
+  
+    .information-card h3 {  
+      color: var(--primary);  
+      margin-top: 15px;  
+      margin-bottom: 5px;  
+    }  
+  
+    .information-card h3:first-child {  
+      margin-top: 0;  
+    }  
+  
+    /* Skills */  
+    .skills-grid {  
+      display: grid;  
+      grid-template-columns: repeat(3, minmax(0, 1fr));  
+      gap: 18px;  
+      margin-top: 25px;  
+    }  
+  
+    .skill-card {  
+      background: var(--white);  
+      border: 1px solid var(--border);  
+      border-radius: 10px;  
+      padding: 20px;  
+      text-align: center;  
+      font-weight: bold;  
+    }  
+  
+    /* Projects */  
+    .projects-grid {  
+      display: grid;  
+      grid-template-columns: repeat(2, minmax(0, 1fr));  
+      gap: 24px;  
+      margin-top: 25px;  
+    }  
+  
+    .project-card {  
+      min-width: 0;  
+      overflow: hidden;  
+      background: var(--white);  
+      border: 1px solid var(--border);  
+      border-radius: 12px;  
+      transition: transform 0.2s, box-shadow 0.2s;  
+    }  
+  
+    .project-card:hover {  
+      transform: translateY(-4px);  
+      box-shadow: 0 8px 22px #17255418;  
+    }  
+  
+    .project-card img {  
+      width: 100%;  
+      height: 210px;  
+      object-fit: cover;  
+      background: var(--light);  
+    }  
+  
+    .project-content {  
+      padding: 22px;  
+    }  
+  
+    .project-content h3 {  
+      color: var(--dark);  
+      margin-bottom: 10px;  
+    }  
+  
+    .project-content p {  
+      margin-bottom: 12px;  
+    }  
+  
+    .project-tech,  
+    .repository-language {  
+      color: var(--muted);  
+      font-size: 0.9rem;  
+    }  
+  
+    .project-link {  
+      display: inline-block;  
+      margin-top: 8px;  
+      font-weight: bold;  
+    }  
+  
+    .status-message {  
+      margin: 12px 0;  
+      text-align: center;  
+    }  
+  
+    /* GitHub */  
+    .github-section {  
+      margin-top: 65px;  
+    }  
+  
+    .github-section h3 {  
+      text-align: center;  
+      color: var(--dark);  
+      font-size: 1.5rem;  
+      margin-bottom: 12px;  
+    }  
+  
+    .github-profile {  
+      text-align: center;  
+      margin-bottom: 20px;  
+    }  
+  
+    .repository-list {  
+      list-style: none;  
+    }  
+  
+    .repository-list li {  
+      background: var(--white);  
+      border: 1px solid var(--border);  
+      border-radius: 8px;  
+      padding: 16px;  
+      margin-bottom: 12px;  
+    }  
+  
+    .repository-list a {  
+      font-weight: bold;  
+    }  
+  
+    /* Contact */  
+    .contact-details {  
+      text-align: center;  
+      margin-bottom: 25px;  
+    }  
+  
+    .contact-form {  
+      max-width: 600px;  
+      margin: 25px auto 0;  
+      display: grid;  
+      gap: 10px;  
+    }  
+  
+    .contact-form label {  
+      font-weight: bold;  
+      margin-top: 8px;  
+    }  
+  
+    .contact-form input,  
+    .contact-form textarea {  
+      width: 100%;  
+      padding: 12px;  
+      border: 1px solid var(--border);  
+      border-radius: 7px;  
+      font: inherit;  
+      background: var(--white);  
+    }  
+  
+    .contact-form input:focus,  
+    .contact-form textarea:focus {  
+      outline: 2px solid var(--primary);  
+      outline-offset: 1px;  
+    }  
+  
+    .contact-form textarea {  
+      resize: vertical;  
+    }  
+  
+    .contact-form button {  
+      margin-top: 10px;  
+    }  
+  
+    #formFeedback {  
+      margin-top: 10px;  
+      text-align: center;  
+    }  
+  
+    /* Footer */  
+    footer {  
+      background: var(--dark);  
+      color: var(--white);  
+      text-align: center;  
+      padding: 22px;  
+    }  
+  
+    /* Back to top */  
+    .back-to-top {  
+      position: fixed;  
+      bottom: 22px;  
+      right: 22px;  
+      padding: 12px 16px;  
+      background: var(--primary);  
+      color: var(--white);  
+      border: none;  
+      border-radius: 8px;  
+      cursor: pointer;  
+      display: none;  
+      z-index: 99;  
+    }  
+  
+    .back-to-top.visible {  
+      display: block;  
+    }  
+  
+    /* Responsive layout */  
+    @media (max-width: 768px) {  
+      .navbar {  
+        flex-direction: column;  
+      }  
+  
+      .nav-links {  
+        justify-content: center;  
+        gap: 12px 18px;  
+      }  
+  
+      .hero {  
+        flex-direction: column-reverse;  
+        text-align: center;  
+        gap: 30px;  
+      }  
+  
+      .hero-actions {  
+        justify-content: center;  
+      }  
+  
+      .profile-container {  
+        flex-basis: auto;  
+      }  
+  
+      .profile-container img {  
+        width: 220px;  
+        height: 220px;  
+      }  
+  
+      .skills-grid {  
+        grid-template-columns: repeat(2, minmax(0, 1fr));  
+      }  
+    }  
+  
+    @media (max-width: 480px) {  
+      .section {  
+        padding: 45px 16px;  
+      }  
+  
+      .hero {  
+        padding: 45px 16px;  
+      }  
+  
+      .skills-grid,  
+      .projects-grid {  
+        grid-template-columns: 1fr;  
+      }  
+  
+      .section-title {  
+        font-size: 1.7rem;  
+      }  
+  
+      .nav-links {  
+        gap: 8px 12px;  
+        font-size: 0.9rem;  
+      }  
+    }  
+  </style>  </head>  <body>    <!-- Navigation -->    <header class="site-header">  
+    <nav class="navbar" aria-label="Main navigation">  
+      <a class="logo" href="#home">MyPortfolio</a>  <ul class="nav-links">  
+    <li><a href="#home">Home</a></li>  
+    <li><a href="#about">About</a></li>  
+    <li><a href="#skills">Skills</a></li>  
+    <li><a href="#projects">Projects</a></li>  
+    <li><a href="#contact">Contact</a></li>  
+  </ul>  
+</nav>
+
+  </header>    <main>  
+    <!-- Home -->  
+    <section id="home" class="hero">  
+      <div class="hero-content">  
+        <p class="eyebrow">MY PORTFOLIO</p>  <h1>Hello, I'm <span id="studentName">Freda A. Carimpal</span></h1>  
+
+    <h2 id="tagline">Aspiring Web Developer</h2>  
+
+    <p id="introduction">  
+      I enjoy learning technology and building useful applications.  
+    </p>  
+
+    <div class="hero-actions">  
+      <a class="btn" href="#projects">View My Projects</a>  
+      <a class="btn btn-outline" href="#contact">Contact Me</a>  
+    </div>  
+  </div>  
+
+  <div class="profile-container">  
+    <img  
+      id="profileImage"  
+      src="images/fre.jpg"  
+      alt="Student profile photo"  
+      onerror="this.onerror=null; this.src='https://placehold.co/280x280/eff6ff/1d4ed8?text=My+Photo';"  
+    >  
+  </div>  
+</section>  
+
+<!-- About -->  
+<section id="about" class="section">  
+  <h2 class="section-title">About Me</h2>  
+
+  <div class="about-content">  
+    <p id="biography">  
+      I am an IT student who enjoys learning about computers,  
+      programming, and basic networking management system.  
+    </p>  
+
+    <div class="information-card">  
+      <h3>Educational Background</h3>  
+      <p id="education">BS Information Technology</p>  
+      <p id="graduation">Expected Graduation: 2028</p>  
+
+      <h3>Career Goal</h3>  
+      <p id="careerGoal">  
+        To become a skilled Web developer.  
+      </p>  
+
+      <h3>Interests</h3>  
+      <p id="interests">Coding, technology, and learning new skills.</p>  
+    </div>  
+  </div>  
+</section>  
+
+<!-- Skills -->  
+<section id="skills" class="section alternate">  
+  <h2 class="section-title">My Skills</h2>  
+
+  <p class="section-description">  
+    Technologies I am learning and developing.  
+  </p>  
+
+  <div id="skillsContainer" class="skills-grid">  
+    <div class="skill-card">HTML</div>  
+    <div class="skill-card">CSS</div>  
+    <div class="skill-card">JavaScript</div>  
+  </div>  
+</section>  
+
+<!-- Projects -->  
+<section id="projects" class="section">  
+  <h2 class="section-title">My Projects</h2>  
+
+  <p class="section-description">  
+    Here are some of my projects and school activities.  
+  </p>  
+
+  <p id="projectsMessage" class="status-message" role="status"></p>  
+
+  <div id="projectsContainer" class="projects-grid"></div>  
+
+  <!-- GitHub repositories -->  
+  <div class="github-section">  
+    <h3>My GitHub Repositories</h3>  
+
+    <p class="github-profile">  
+      <a  
+        id="githubProfile"  
+        href="https://github.com/"  
+        target="_blank"  
+        rel="noopener noreferrer"  
+      >Visit My GitHub Profile</a>  
+    </p>  
+
+    <p id="githubMessage" class="status-message" role="status">  
+      Loading GitHub repositories...  
+    </p>  
+
+    <ul id="githubRepos" class="repository-list"></ul>  
+  </div>  
+</section>  
+
+<!-- Contact -->  
+<section id="contact" class="section alternate">  
+  <h2 class="section-title">Contact Me</h2>  
+
+  <div class="contact-details">  
+    <p>Email: <a id="contactEmail" href="mailto:student@example.com">carimpalf@gmail.com</a></p>  
+    <p id="contactLocation">Location: Dupax del Norte,Nueva Vizcaya</p>  
+
+    <p>  
+      LinkedIn:  
+      <a  
+        id="linkedinLink"  
+        href="https://www.linkedin.com/"  
+        target="_blank"  
+        rel="noopener noreferrer"  
+      >My LinkedIn Profile</a>  
+    </p>  
+  </div>  
+
+  <form id="contactForm" class="contact-form">  
+    <label for="visitorName">Your Name</label>  
+    <input  
+      type="text"  
+      id="visitorName"  
+      name="name"  
+      placeholder="Enter your name"  
+      minlength="2"  
+      maxlength="100"  
+      autocomplete="name"  
+      required  
+    >  
+
+    <label for="visitorEmail">Your Email</label>  
+    <input  
+      type="email"  
+      id="visitorEmail"  
+      name="email"  
+      placeholder="Enter your email"  
+      maxlength="254"  
+      autocomplete="email"  
+      required  
+    >  
+
+    <label for="visitorMessage">Your Message</label>  
+    <textarea  
+      id="visitorMessage"  
+      name="message"  
+      rows="5"  
+      placeholder="Write your message here"  
+      minlength="10"  
+      maxlength="2000"  
+      required  
+    ></textarea>  
+
+    <button type="submit" class="btn">Submit Message</button>  
+
+    <p id="formFeedback" role="status" aria-live="polite"></p>  
+  </form>  
+</section>
+
+  </main>    <footer>  
+    <p id="footerText">  
+      © 2026 Freda A. Carimpal  
+    </p>  
+  </footer>  <button
+id="backToTop"
+class="back-to-top"
+type="button"
+aria-label="Back to top"
+
+> ↑ Top</button>
+
+
+
+  <script>  
+    "use strict";  
+  
+    const sampleData = {  
+      name: "Freda A. Carimpal",  
+      tagline: "BS Information Technology Student",  
+      introduction:  
+        "I enjoy learning technology and building useful applications.",  
+  
+      profileImage: "images/fre.jpg",  
+  
+      about: {  
+        biography:  
+          "I am a second-year BS Information Technology student. " +  
+          "I enjoy learning about programming, computers, and basic networking management system.",  
+  
+        program: "Bachelor of Science in Information Technology",  
+        school: "Nueva Vizcaya State University -Bambang Campus",  
+        graduation: "Expected Graduation: 2028",  
+  
+        careerGoal:  
+          "To become a skilled IT professional and web developer.",  
+  
+        interests:  
+          "Coding, web development, computers, and learning new technologies."  
+      },  
+  
+      skills: [  
+        "HTML",  
+        "CSS",  
+        "JavaScript",  
+        "Java",  
+        "GitHub"  
+      ],  
+  
+      projects: [  
+        {  
+          title: "Student Portfolio Website",  
+          description:  
+            "A personal website that introduces me and shows my skills and projects.",  
+  
+          technologies: "HTML, CSS, JavaScript",  
+          role: "Student Developer",  
+  
+          image:  
+            "https://placehold.co/600x300/eff6ff/1d4ed8?text=Student+Portfolio",  
+  
+          link: ""  
+        },  
+  
+        {  
+          title: "Java Programming Project",  
+          description:  
+            "A sample Java project created to practice programming fundamentals.",  
+  
+          technologies: "Java",  
+          role: "Student Developer",  
+  
+          image:  
+            "https://placehold.co/600x300/e0e7ff/172554?text=Java+Project",  
+  
+          link: ""  
+        }  
+      ],  
+  
+      contact: {  
+        email: "carimpalf@gmail.com",  
+        location: "Dupax del Norte, Nueva Vizcaya",  
+        linkedin: "https://www.linkedin.com/"  
+      },  
+  
+      githubUsername: "freacarimpal"  
+    };  
+  
+    // Start the website features.  
+    document.addEventListener("DOMContentLoaded", function () {  
+      setupContactForm();  
+      setupBackToTop();  
+      loadPortfolio();  
+    });  
+  
+    // Load portfolio data from JSON.  
+    // If the JSON file is unavailable, use the sample data.  
+    async function loadPortfolio() {  
+      let data = sampleData;  
+      const projectsMessage =  
+        document.getElementById("projectsMessage");  
+  
+      try {  
+        const response = await fetch("data/projects.json");  
+  
+        if (!response.ok) {  
+          throw new Error("Portfolio JSON file not found.");  
+        }  
+  
+        const jsonData = await response.json();  
+  
+        // Use external data only when it has the required fields.  
+        if (  
+          !jsonData ||  
+          typeof jsonData.name !== "string" ||  
+          !jsonData.about ||  
+          !jsonData.contact ||  
+          !Array.isArray(jsonData.skills) ||  
+          !Array.isArray(jsonData.projects)  
+        ) {  
+          throw new Error("Invalid portfolio JSON structure.");  
+        }  
+  
+        data = jsonData;  
+      } catch (error) {  
+        console.info(  
+          "Using sample portfolio data:",  
+          error.message  
+        );  
+      }  
+  
+      // Display student information.  
+      document.getElementById("studentName").textContent =  
+        data.name || sampleData.name;  
+  
+      document.getElementById("tagline").textContent =  
+        data.tagline || sampleData.tagline;  
+  
+      document.getElementById("introduction").textContent =  
+        data.introduction || sampleData.introduction;  
+  
+      document.getElementById("profileImage").src =  
+        data.profileImage || sampleData.profileImage;  
+  
+      document.getElementById("biography").textContent =  
+        data.about.biography || "";  
+  
+      document.getElementById("education").textContent =  
+        (data.about.program || "") +  
+        " - " +  
+        (data.about.school || "");  
+  
+      document.getElementById("graduation").textContent =  
+        data.about.graduation || "";  
+  
+      document.getElementById("careerGoal").textContent =  
+        data.about.careerGoal || "";  
+  
+      document.getElementById("interests").textContent =  
+        data.about.interests || "";  
+  
+      // Display contact information.  
+      const email = data.contact.email || sampleData.contact.email;  
+      const emailLink = document.getElementById("contactEmail");  
+  
+      emailLink.textContent = email;  
+      emailLink.href = "mailto:" + email;  
+  
+      document.getElementById("contactLocation").textContent =  
+        "Location: " +  
+        (data.contact.location || "Not specified");  
+  
+      // Allow only normal HTTPS LinkedIn URLs.  
+      const linkedinLink = document.getElementById("linkedinLink");  
+  
+      try {  
+        const linkedin = new URL(  
+          data.contact.linkedin || sampleData.contact.linkedin  
+        );  
+  
+        if (  
+          linkedin.protocol === "https:" &&  
+          linkedin.hostname === "www.linkedin.com"  
+        ) {  
+          linkedinLink.href = linkedin.href;  
+        }  
+      } catch (error) {  
+        console.info("Invalid LinkedIn URL.");  
+      }  
+  
+      document.getElementById("footerText").textContent =  
+        "\u00A9 " +  
+        new Date().getFullYear() +  
+        " " +  
+        (data.name || sampleData.name) +  
+        " | Student Portfolio";  
+  
+      // Display skills and projects.  
+      displaySkills(data.skills);  
+      displayProjects(data.projects);  
+  
+      // Load public GitHub repositories.  
+      loadGitHubRepositories(data.githubUsername);  
+    }  
+  
+    // Display skills.  
+    function displaySkills(skills) {  
+      const container =  
+        document.getElementById("skillsContainer");  
+  
+      container.replaceChildren();  
+  
+      if (!Array.isArray(skills) || skills.length === 0) {  
+        container.textContent = "No skills have been added yet.";  
+        return;  
+      }  
+  
+      skills.forEach(function (skill) {  
+        const card = document.createElement("div");  
+  
+        card.className = "skill-card";  
+        card.textContent = skill;  
+  
+        container.appendChild(card);  
+      });  
+    }  
+  
+    // Display projects safely without inserting user data as HTML.  
+    function displayProjects(projects) {  
+      const container =  
+        document.getElementById("projectsContainer");  
+  
+      const message =  
+        document.getElementById("projectsMessage");  
+  
+      container.replaceChildren();  
+  
+      if (!Array.isArray(projects) || projects.length === 0) {  
+        message.textContent =  
+          "No projects are available at the moment.";  
+        return;  
+      }  
+  
+      message.textContent = "";  
+  
+      projects.forEach(function (project) {  
+        const card = document.createElement("article");  
+        card.className = "project-card";  
+  
+        const image = document.createElement("img");  
+  
+        image.src = project.image ||  
+          "https://placehold.co/600x300/eff6ff/1d4ed8?text=Project";  
+  
+        image.alt = "Screenshot of " + (project.title || "Project");  
+        image.loading = "lazy";  
+  
+        image.onerror = function () {  
+          image.onerror = null;  
+          image.src =  
+            "https://placehold.co/600x300/eff6ff/1d4ed8?text=Project";  
+        };  
+  
+        const content = document.createElement("div");  
+        content.className = "project-content";  
+  
+        const title = document.createElement("h3");  
+        title.textContent = project.title || "Untitled Project";  
+  
+        const description = document.createElement("p");  
+        description.textContent = project.description || "";  
+  
+        const technologies = document.createElement("p");  
+        technologies.className = "project-tech";  
+        technologies.textContent =  
+          "Technologies: " + (project.technologies || "Not specified");  
+  
+        const role = document.createElement("p");  
+        role.textContent =  
+          "My Role: " + (project.role || "Not specified");  
+  
+        content.append(  
+          title,  
+          description,  
+          technologies,  
+          role  
+        );  
+  
+        // Add a project link only when a valid HTTPS URL is provided.  
+        if (project.link) {  
+          try {  
+            const projectURL = new URL(project.link);  
+  
+            if (projectURL.protocol === "https:") {  
+              const link = document.createElement("a");  
+  
+              link.href = projectURL.href;  
+              link.textContent = "View Project";  
+              link.className = "project-link";  
+              link.target = "_blank";  
+              link.rel = "noopener noreferrer";  
+  
+              content.appendChild(link);  
+            }  
+          } catch (error) {  
+            console.info("Skipping invalid project link.");  
+          }  
+        }  
+  
+        card.append(image, content);  
+        container.appendChild(card);  
+      });  
+    }  
+  
+    // Load the five most recently updated public GitHub repositories.  
+    async function loadGitHubRepositories(username) {  
+      const container =  
+        document.getElementById("githubRepos");  
+  
+      const message =  
+        document.getElementById("githubMessage");  
+  
+      const profileLink =  
+        document.getElementById("githubProfile");  
+  
+      container.replaceChildren();  
+  
+      if (  
+        !username ||  
+        username === "yourusername" ||  
+        !/^[a-zA-Z0-9-]{1,39}$/.test(username)  
+      ) {  
+        message.textContent =  
+          "Update githubUsername in the portfolio data to your GitHub username.";  
+        return;  
+      }  
+  
+      profileLink.href =  
+        "https://github.com/" + encodeURIComponent(username);  
+  
+      message.textContent = "Loading GitHub repositories...";  
+  
+      try {  
+        const apiURL =  
+          "https://api.github.com/users/" +  
+          encodeURIComponent(username) +  
+          "/repos?sort=updated&per_page=5&type=public";  
+  
+        const response = await fetch(apiURL);  
+  
+        if (!response.ok) {  
+          throw new Error("GitHub API request failed.");  
+        }  
+  
+        const repositories = await response.json();  
+  
+        if (!Array.isArray(repositories) ||  
+            repositories.length === 0) {  
+          message.textContent =  
+            "No public repositories were found.";  
+          return;  
+        }  
+  
+        message.textContent = "";  
+  
+        repositories.forEach(function (repo) {  
+          const item = document.createElement("li");  
+  
+          const link = document.createElement("a");  
+          link.href = repo.html_url;  
+          link.textContent = repo.name;  
+          link.target = "_blank";  
+          link.rel = "noopener noreferrer";  
+  
+          const language = document.createElement("p");  
+          language.className = "repository-language";  
+  
+          language.textContent =  
+            "Main language: " +  
+            (repo.language || "Not specified");  
+  
+          item.append(link, language);  
+          container.appendChild(item);  
+        });  
+      } catch (error) {  
+        console.error("GitHub error:", error);  
+  
+        message.textContent =  
+          "GitHub repositories are unavailable. Check your username or try again later.";  
+      }  
+    }  
+  
+    // Validate the contact form.  
+    function setupContactForm() {  
+      const form =  
+        document.getElementById("contactForm");  
+  
+      const feedback =  
+        document.getElementById("formFeedback");  
+  
+      form.addEventListener("submit", function (event) {  
+        event.preventDefault();  
+  
+        if (!form.checkValidity()) {  
+          form.reportValidity();  
+  
+          feedback.textContent =  
+            "Please complete all fields correctly.";  
+  
+          return;  
+        }  
+  
+        const visitorName =  
+          document.getElementById("visitorName").value.trim();  
+  
+        const visitorEmail =  
+          document.getElementById("visitorEmail").value.trim();  
+  
+        const visitorMessage =  
+          document.getElementById("visitorMessage").value.trim();  
+  
+        if (  
+          visitorName.length < 2 ||  
+          visitorEmail.length === 0 ||  
+          visitorMessage.length < 10  
+        ) {  
+          feedback.textContent =  
+            "Enter a valid name, email, and message of at least 10 characters.";  
+  
+          return;  
+        }  
+  
+        feedback.textContent =  
+          "Thank you, " +  
+          visitorName +  
+          "! Your form passed validation. No message was sent because this is a static website.";  
+  
+        form.reset();  
+      });  
+    }  
+  
+    // Show the back-to-top button when scrolling.  
+    function setupBackToTop() {  
+      const button =  
+        document.getElementById("backToTop");  
+  
+      window.addEventListener("scroll", function () {  
+        button.classList.toggle(  
+          "visible",  
+          window.scrollY > 300  
+        );  
+      });  
+  
+      button.addEventListener("click", function () {  
+        window.scrollTo({  
+          top: 0,  
+          behavior: "smooth"  
+        });  
+      });  
+    }  
+  </script>  </body>  
+</html>  
