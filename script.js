@@ -52,8 +52,21 @@ const portfolioData = {
       image:
         "https://placehold.co/600x300/eff6ff/1d4ed8?text=Student+Portfolio",
 
-      link: ""
-    },
+{
+  title: "My Portfolio",
+
+  description:
+    "My personal portfolio website that introduces me, shows my skills, educational background, and projects as a BS Information Technology student.",
+
+  technologies: "HTML, CSS, JavaScript",
+
+  role: "Student Developer",
+
+  image:
+    "https://placehold.co/600x300/eff6ff/1d4ed8?text=My+Portfolio",
+
+  link: ""
+    }
 
     {
       title: "Java Programming Project",
