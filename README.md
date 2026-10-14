@@ -1,3 +1,2 @@
 # My-Portfolio
-
-https://github.com/freacarimpal/freacarimpal.github.io/
+https://freacarimpal.github.io/
